@@ -5,7 +5,13 @@
  
 {% block content %}
 
-<h2>List of Employees</h2> 
+<h2>List of Employees</h2>
+
+{{ govukButton({
+  text: "Add new employee",
+  href: "/insert-employee"
+}) }}
+
 {% if employees and employees.length > 0 %} 
 {% set employeerows = [] %} 
 {% for employee in employees %}
