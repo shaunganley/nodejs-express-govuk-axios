@@ -32,6 +32,3 @@ CREATE TABLE `salesEmployee` (
   PRIMARY KEY (`employeeId`),
   CONSTRAINT `fkEmployeeIdSales` FOREIGN KEY (`employeeId`) REFERENCES `employee` (`employeeId`) ON DELETE CASCADE
 )
-
-
-
