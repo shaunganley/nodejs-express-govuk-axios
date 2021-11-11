@@ -5,7 +5,13 @@ const router = express.Router()
 const employeeDao = require('../dao/employeeDao')
 
 router.get('/employees', async (req, res) => { 
-    res.render('list-employees', { employees: await employeeDao.getEmployees() } ) 
+    let results = await employeeDao.getEmployees()
+
+    for (let i = 0; i < results.length; i++) {
+        results[i].viewUrl = `<a href='employees/${results[i].employeeId}'>View</a>`
+    }
+
+    res.render('list-employees', { employees: results } ) 
 });
 
 router.get('/employees/:id', async (req, res) => { 

@@ -10,11 +10,11 @@
 {% set employeerows = [] %} 
 {% for employee in employees %}
 {% set employeerows = (employeerows.push([{ text: employee.fName }, {text: employee.lName }, {text: employee.email}, 
-                    {text: employee.salary}]), employeerows) %} 
+                    {text: employee.salary}, {text: employee.viewUrl | safe}]), employeerows) %} 
 {% endfor %} 
 {{govukTable({ 
     head: [ { text: "Forename" },{ text: "Surname" },{ text: "Email" }, 
-            { text: "Salary" }], 
+            { text: "Salary" }, { text: "" }], 
     rows: employeerows }) 
 }} 
 {% else %}
