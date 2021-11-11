@@ -1,0 +1,22 @@
+{% extends "layout.html" %} 
+{% block pageTitle %} 
+  List of Employees 
+{% endblock %} 
+ 
+{% block content %}
+
+{% if employee %} 
+<h2>{{employee.fname}} {{employee.lname}}</h2> 
+{% set employeerows = [] %} 
+{% set employeerows = (employeerows.push([{ text: employee.fName }, {text: employee.lName }, {text: employee.email}, 
+                    {text: employee.salary}]), employeerows) %} 
+{{govukTable({ 
+    head: [ { text: "Forename" },{ text: "Surname" },{ text: "Email" }, 
+            { text: "Salary" }], 
+    rows: employeerows }) 
+}} 
+{% else %}
+Employee does not exist 
+{% endif %}
+
+{% endblock %}
