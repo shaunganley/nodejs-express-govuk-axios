@@ -15,7 +15,7 @@
 {% if employees and employees.length > 0 %} 
 {% set employeerows = [] %} 
 {% for employee in employees %}
-{% set employeerows = (employeerows.push([{ text: employee.fName }, {text: employee.lName }, {text: employee.email}, 
+{% set employeerows = (employeerows.push([{ text: employee.fname }, {text: employee.lname }, {text: employee.email}, 
                     {text: employee.salary}, {text: employee.viewUrl | safe}]), employeerows) %} 
 {% endfor %} 
 {{govukTable({ 

@@ -13,7 +13,7 @@
 {% if employee %} 
 <h2>{{ employee.fName }} {{ employee.lName }}</h2>
 {% set employeerows = [] %} 
-{% set employeerows = (employeerows.push([{ text: employee.fName }, {text: employee.lName }, {text: employee.email}, 
+{% set employeerows = (employeerows.push([{ text: employee.fname }, {text: employee.lname }, {text: employee.email}, 
                     {text: employee.salary}]), employeerows) %} 
 {{govukTable({ 
     head: [ { text: "Forename" },{ text: "Surname" },{ text: "Email" }, 

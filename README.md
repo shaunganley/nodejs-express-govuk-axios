@@ -1,26 +1,10 @@
 # nodejs-express-govuk-mysql
 
-Database
+REST API
 ---
-1. Create an empty database
-1. Run the following command from the base of your cloned directory to create the required database structure:
-```
-mysql --host=<localhost> --user=<your_username> --password=<your_password> <your_database_name> < employeesdb.sql
-```
+This application provides a frontend for the REST API: https://github.com/shaunganley/java-dropwizard-swagger-jdbc
+1. Follow the steps in the above link to run the REST API
 
-Properties file
----
-1. Create a file in the `app` directory called 'dbconfig.json'
-1. Add the following contents to the file:
-```
-{ 
-    "connectionLimit": 10, 
-    "host":     <database host>, 
-    "user":     <username>,
-    "password": <password>,
-    "database": <database name>
-}
-```
 
 How to start the nodejs-express-govuk-mysql application
 ---
