@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const axios = require('axios');
-axios.defaults.baseURL = 'http://localhost:8080/';
+axios.defaults.baseURL = process.env.restApiUrl || 'http://localhost:8080/';
 
 router.get('/employees', async (req, res) => { 
+    console.log(axios.baseURL)
     let results = await axios.get('/hr/employee')
     let data = results.data
 
