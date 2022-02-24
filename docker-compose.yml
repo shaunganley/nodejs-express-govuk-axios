@@ -1,0 +1,26 @@
+version: '1'
+services:
+  web:
+    #container_name:EXPRESS_GOV
+    #hostname: express_gov
+    ports:
+      - "3000:3000"		
+    image: kainos-engacademy:expressgov
+    depends_on:
+      - backend
+  
+  backend:
+    #container_name: JDBC
+    #hostname: jdbc
+    ports:
+      - "8080:8080"
+    image: kainos-engacademy:jdbc
+#   depends_on:
+#      - db
+  
+#  db:
+#    container_name: MYSQLDB
+#    hostname: mysqldb
+#    ports:
+#      - "3306:3306"
+#    image:
