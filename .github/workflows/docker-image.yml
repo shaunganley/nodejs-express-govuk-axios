@@ -15,6 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
+      env:
+          API_URL: ${{ secrets.API_URL }}
       run: docker build . --file Dockerfile --tag web:latest
-      with:
-        API_URL: ${{ secrets.API_URL }}
