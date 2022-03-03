@@ -1,17 +1,24 @@
 const express = require('express')
 const router = express.Router()
 const axios = require('axios');
-axios.defaults.baseURL = process.env.restApiUrl || 'http://localhost:8080/';
+axios.defaults.baseURL = process.env.API_URL;
 
-router.get('/employees', async (req, res) => { 
-    console.log(axios.baseURL)
-    let results = await axios.get('/hr/employee')
-    let data = results.data
+router.get('/employees', async (req, res) => {
+    let data = [];
 
-    for (let i = 0; i < data.length; i++) {
-        data[i].viewUrl = `<a href='employees/${data[i].employeeId}'>View</a>`
+    try {
+        let results = await axios.get('/hr/employee')
+
+        data = results.data
+
+        for (let i = 0; i < data.length; i++) {
+            data[i].viewUrl = `<a href='employees/${data[i].employeeId}'>View</a>`
+        }
+
+    } catch (e) {
+        console.error(e);
     }
-
+    
     res.render('list-employees', { employees: data } ) 
 });
 

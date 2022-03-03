@@ -8,6 +8,10 @@ COPY package*.json ./
 
 USER node
 
+ARG API_URL
+
+ENV API_URL ${API_URL}
+
 RUN npm install
 
 COPY --chown=node:node . .
