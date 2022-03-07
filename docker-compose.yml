@@ -1,15 +1,19 @@
 version: '1'
 services:
   web:
+<<<<<<<<< Temporary merge branch 1
+    #container_name:EXPRESS_GOV
+    #hostname: express_gov
+=========
     container_name: EXPRESS_GOV
     hostname: express_gov
+>>>>>>>>> Temporary merge branch 2
     ports:
       - "3000:3000"		
     image: kainos-engacademy:expressgov
-    environment:
-      - API_URL=$API_URL
     depends_on:
-      - backend
+      - api
+  
   backend:
     container_name: JDBC
     hostname: jdbc
