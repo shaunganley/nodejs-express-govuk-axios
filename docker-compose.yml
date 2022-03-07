@@ -6,6 +6,8 @@ services:
     ports:
       - "3000:3000"		
     image: kainos-engacademy:expressgov
+    environment:
+      - API_URL=$API_URL
     depends_on:
       - backend
   backend:
