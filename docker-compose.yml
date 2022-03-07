@@ -3,34 +3,24 @@ services:
   web:
     container_name: EXPRESS_GOV
     hostname: express_gov
-    environment:
-      - restApiUrl=http://jdbc:8080/
     ports:
       - "3000:3000"		
     image: kainos-engacademy:expressgov
     depends_on:
       - api
   
-  api:
+  backend:
     container_name: JDBC
     hostname: jdbc
-    environment:
-      - DB_USERNAME=root
-      - DB_PASSWORD=example
-      - DB_HOST=mysqldb
-      - DB_NAME=localdb
     ports:
       - "8080:8080"
     image: kainos-engacademy:jdbc
-    depends_on:
+   depends_on:
       - db
-
-  db:
-    image: mysql
-    container_name: MYSQLDB
-    hostname: mysqldb
-    ports:
-      - "3306:3306"
-    command: --default-authentication-plugin=mysql_native_password
-    environment:
-      MYSQL_ROOT_PASSWORD: example
+  
+#  db:
+#    container_name: MYSQLDB
+#    hostname: mysqldb
+#    ports:
+#      - "3306:3306"
+#    image:
