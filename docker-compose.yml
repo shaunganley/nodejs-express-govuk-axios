@@ -6,21 +6,30 @@ services:
     ports:
       - "3000:3000"		
     image: kainos-engacademy:expressgov
+    environment:
+      - API_URL=$API_URL
     depends_on:
-      - api
-  
+      - backend
   backend:
     container_name: JDBC
     hostname: jdbc
     ports:
       - "8080:8080"
     image: kainos-engacademy:jdbc
-   depends_on:
-      - db
-  
+    environment:
+      - DB_HOST=$DB_HOST
+      - DB_PASSWORD=$DB_PASSWORD
+      - DB_USERNAME=$DB_USERNAME
+      - DB_NAME=$DB_NAME
+# Below code is required to use a local containerised db
+#   depends_on:
+#      - db
 #  db:
+#    image: mysql
 #    container_name: MYSQLDB
 #    hostname: mysqldb
 #    ports:
 #      - "3306:3306"
-#    image:
+#    command: --default-authentication-plugin=mysql_native_password
+#    environment:
+#      MYSQL_ROOT_PASSWORD: example
