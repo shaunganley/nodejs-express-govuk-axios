@@ -10,7 +10,6 @@ services:
       - API_URL=$API_URL
     depends_on:
       - backend
-  
   backend:
     container_name: JDBC
     hostname: jdbc
@@ -22,12 +21,15 @@ services:
       - DB_PASSWORD=$DB_PASSWORD
       - DB_USERNAME=$DB_USERNAME
       - DB_NAME=$DB_NAME
+# Below code is required to use a local containerised db
 #   depends_on:
 #      - db
-  
 #  db:
+#    image: mysql
 #    container_name: MYSQLDB
 #    hostname: mysqldb
 #    ports:
 #      - "3306:3306"
-#    image:
+#    command: --default-authentication-plugin=mysql_native_password
+#    environment:
+#      MYSQL_ROOT_PASSWORD: $DB_PASSWORD
