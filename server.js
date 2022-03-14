@@ -20,7 +20,7 @@ const middleware = [
 ]
 const config = require('./app/config.js')
 const packageJson = require('./package.json')
-const routes = require('./app/controller/employeeController.js')
+const routes = require('./app/controller/EmployeeController.js')
 const utils = require('./lib/utils.js')
 const extensions = require('./lib/extensions/extensions.js')
 

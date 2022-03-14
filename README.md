@@ -13,6 +13,11 @@ How to start the nodejs-express-govuk-mysql application
 1. Start application with `npm start`
 1. To check that your application is running enter url `http://localhost:3000/employees`
 
+Tests
+---
+
+1. Run `npm test` to run unit tests
+
 Config
 ---
 

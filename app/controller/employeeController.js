@@ -1,13 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const axios = require('axios');
-axios.defaults.baseURL = process.env.API_URL;
+
+const EmployeeService = require('../service/EmployeeService');
+const EmployeeValidator = require('../validator/EmployeeValidator');
 
 router.get('/employees', async (req, res) => {
     let data = [];
 
     try {
-        let results = await axios.get('/hr/employee')
+        let results = await EmployeeService.getEmployees()
 
         data = results.data
 
@@ -23,7 +24,8 @@ router.get('/employees', async (req, res) => {
 });
 
 router.get('/employees/:id', async (req, res) => { 
-    let results = await axios.get('/hr/employee/' + req.params.id)
+    let results = await EmployeeService.getEmployee(req.params.id)
+    
     res.render('list-employee', { employee: results.data } ) 
 });
 
@@ -32,12 +34,22 @@ router.get('/insert-employee', async (req, res) => {
 });
 
 router.post('/insert-employee', async (req, res) => {
+    let error = EmployeeValidator.validateEmployee(req.body)
+
+    console.log(error)
+
+    if (error) {
+        res.locals.errormessage = error
+        return res.render('employee-form', req.body) 
+    }
+
     try {
-        let response = await axios.post('/hr/employee', req.body)
+        let response = await EmployeeService.createEmployee(req.body)
+        
         res.redirect('/employees/' + response.data)
     } catch (e) {
         res.locals.errormessage = "Failed to submit form"
-        res.render('employee-form', req.body) 
+        res.render('employee-form', req.body)
     }
 });
 
