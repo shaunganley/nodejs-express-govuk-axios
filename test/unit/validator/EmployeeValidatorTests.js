@@ -125,7 +125,7 @@ describe('EmployeeValidator', function () {
 
     Expect error to be returned
 
-    This should fail, make code changes to make this test pass
+    This should pass without code changes
      */
     })
   })
