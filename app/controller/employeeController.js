@@ -4,7 +4,7 @@ const router = express.Router()
 const EmployeeService = require('../service/EmployeeService');
 const EmployeeValidator = require('../validator/EmployeeValidator');
 
-router.get('/employees', (req, res) => {
+router.get('/employees', async (req, res) => {
     let data = [];
 
     try {
@@ -21,7 +21,7 @@ router.get('/employees', (req, res) => {
     res.render('list-employees', { employees: data } ) 
 });
 
-router.get('/employees/:id', (req, res) => {     
+router.get('/employees/:id', async (req, res) => {     
     res.render('list-employee', { employee: await EmployeeService.getEmployee(req.params.id) } ) 
 });
 
@@ -29,7 +29,7 @@ router.get('/insert-employee', (req, res) => {
     res.render('employee-form') 
 });
 
-router.post('/insert-employee', (req, res) => {
+router.post('/insert-employee', async (req, res) => {
     let error = EmployeeValidator.validateEmployee(req.body)
 
     console.log(error)
@@ -40,7 +40,8 @@ router.post('/insert-employee', (req, res) => {
     }
 
     try {        
-        res.redirect('/employees/' + await EmployeeService.createEmployee(req.body))
+        const id = await EmployeeService.createEmployee(req.body)
+        res.redirect('/employees/' + id)
     } catch (e) {
         res.locals.errormessage = "Failed to submit form"
         res.render('employee-form', req.body)
