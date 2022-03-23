@@ -4,6 +4,10 @@ const router = express.Router()
 const EmployeeService = require('../service/EmployeeService');
 const EmployeeValidator = require('../validator/EmployeeValidator');
 
+router.get('/', async (req, res) => {     
+    res.render('employee-home') 
+});
+
 router.get('/employees', async (req, res) => {
     let data = [];
 

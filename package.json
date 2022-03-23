@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node start.js",
     "lint": "standard",
-    "test": "mocha test/unit/**/*.js"
+    "test": "mocha test/unit/**/*.js",
+    "test-ui": "gulp --gulpfile gulpfile-ui.js ui"
   },
   "dependencies": {
     "acorn": "^7.1.1",
@@ -47,12 +48,20 @@
     "uuid": "^7.0.3"
   },
   "devDependencies": {
+    "@wdio/local-runner": "^7.19.0",
+    "@wdio/mocha-framework": "^7.19.0",
     "axios-mock-adapter": "^1.20.0",
     "chai": "^4.3.6",
+    "chromedriver": "^99.0.0",
     "glob": "^7.1.4",
+    "gulp-webdriver": "^4.0.0",
     "jest": "^25.2.7",
     "mocha": "^9.2.2",
+    "selenium-standalone": "^8.0.10",
+    "selenium-webdriver": "^4.1.1",
     "standard": "^14.3.3",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "ts-node": "^10.7.0",
+    "webdriverio": "^7.19.0"
   }
 }
