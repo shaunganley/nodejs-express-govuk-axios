@@ -17,6 +17,7 @@ Tests
 ---
 
 1. Run `npm test` to run unit tests
+1. Run `export UI_TEST_URL=http://localhost:3000 && npm run test-ui` to run UI tests locally, change the URL to run against remote
 
 Config
 ---

@@ -15,7 +15,7 @@ describe('Employee test', () => {
             .build();
 
         // Home
-        driver.get('http://localhost:3000');
+        driver.get(process.env.UI_TEST_URL);
         await driver.findElement(By.id('add-employee-button')).click('#add-employee-button');
   
         // Create Employee
@@ -39,4 +39,50 @@ describe('Employee test', () => {
 
         await driver.quit();
     })
+
+    /*
+    UI Test Exercise 1
+
+    Write an UI test for the add employee flow
+
+    Try to create an employee with a salary of £10,000
+
+    Expect 'Salary must be at least £20,000' error to be displayed
+
+    This should pass without code changes
+    */
+
+    /*
+    UI Test Exercise 2
+
+    Write an UI test for the add employee flow
+
+    Try to create an employee with a salary of ABC
+
+    Expect 'Salary must be a number' error to be displayed
+
+    This should pass without code changes
+    */
+
+    /*
+    UI Test Exercise 3
+
+    Write an UI test for view employee workflow
+
+    Navigate from the homepage to the employee list
+
+    Select view on an employee
+
+    Expect the name on the view employee page to match the name from the link you've clicked
+    */
+
+    /*
+    UI Test Exercise 4
+
+    Write an UI test for view employee workflow
+
+    Navigate directly to the view employee page with an invalid ID
+
+    Expect 'Employee does not exist' error to be displayed
+    */
   })
