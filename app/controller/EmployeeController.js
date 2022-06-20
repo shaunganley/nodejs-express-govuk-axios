@@ -12,7 +12,7 @@ router.get('/employees', async (req, res) => {
     let data = [];
 
     try {
-        data = await EmployeeService.getEmployees("nigeria")
+        data = await EmployeeService.getEmployees()
 
 
         for (let i = 0; i < data.length; i++) {

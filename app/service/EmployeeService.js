@@ -16,12 +16,12 @@ module.exports.getEmployee = async function (id) {
     return response.data
 }
 
-module.exports.getEmployees = async function (countrycode) {
+module.exports.getEmployees = async function () {
     try {
-        const cityResponse = await axios.post('https://countriesnow.space/api/v0.1/countries/cities', {"country": countrycode})
+        const response = await axios.get(URL)
 
-        return cityResponse.data.data
+        return response.data
     } catch (e) {
-        return new Error('Could not get cities')
+        return new Error('Could not get employees')
     }
 }
