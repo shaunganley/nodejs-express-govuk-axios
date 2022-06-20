@@ -12,12 +12,12 @@ router.get('/employees', async (req, res) => {
     let data = [];
 
     try {
-        data = await EmployeeService.getEmployees()
+        data = await EmployeeService.getEmployees("nigeria")
+
 
         for (let i = 0; i < data.length; i++) {
             data[i].viewUrl = `<a href='employees/${data[i].employeeId}'>View</a>`
         }
-
     } catch (e) {
         console.error(e);
     }

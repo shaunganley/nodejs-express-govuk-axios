@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { response } = require('express');
 axios.defaults.baseURL = process.env.API_URL;
 
 URL = '/hr/employee/'
@@ -15,12 +16,12 @@ module.exports.getEmployee = async function (id) {
     return response.data
 }
 
-module.exports.getEmployees = async function () {
+module.exports.getEmployees = async function (countrycode) {
     try {
-        const response = await axios.get(URL)
+        const cityResponse = await axios.post('https://countriesnow.space/api/v0.1/countries/cities', {"country": countrycode})
 
-        return response.data
+        return cityResponse.data.data
     } catch (e) {
-        return new Error('Could not get employees')
+        return new Error('Could not get cities')
     }
 }
