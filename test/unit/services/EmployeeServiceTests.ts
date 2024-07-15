@@ -75,18 +75,6 @@ describe('EmployeeService', function () {
 
     Write a unit test for the getSingleEmployee method
 
-    When the id parameter is null
-
-    Expect an "Invalid ID" error to be returned and axios not invoked
-
-    This should fail, make code changes to make this test pass
-     */
-
-    /*
-    Mocking Exercise 4
-
-    Write a unit test for the getSingleEmployee method
-
     When axios returns with a 400 error
 
     Expect a "Employee does not exist" error to be returned
@@ -95,7 +83,7 @@ describe('EmployeeService', function () {
      */
 
     /*
-    Mocking Exercise 5
+    Mocking Exercise 4
 
     Write a unit test for the createEmployee method
 
@@ -107,7 +95,7 @@ describe('EmployeeService', function () {
      */
 
     /*
-    Mocking Exercise 6
+    Mocking Exercise 5
 
     Write a unit test for the createEmployee method
 
@@ -119,7 +107,7 @@ describe('EmployeeService', function () {
      */
 
      /*
-    Mocking Exercise 7
+    Mocking Exercise 6
 
     Write a unit test for the createEmployee method
 
